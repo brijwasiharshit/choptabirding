@@ -12,13 +12,13 @@ const Navbar = () => {
   const toggleAbout = () => setIsAboutOpen(!isAboutOpen);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-[#0a1a2a] shadow-lg sticky top-0 z-50 border-b border-[#1e3a5f]">
       <div className="container mx-auto px-4 md:px-20">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <NavLink to="/" className="flex items-center">
             <img
-              src="https://www.rockjumperbirding.com/wp-content/uploads/2023/06/logo@2x.svg"
+              src="https://res.cloudinary.com/djrjt69jl/image/upload/v1750674838/Gemini_Generated_Image_oej5neoej5neoej5_ucoqwx.png"
               alt="logo"
               className="h-12 md:h-14 transition-all hover:opacity-90"
             />
@@ -31,8 +31,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-2 py-1 font-medium transition-colors ${
                   isActive
-                    ? "text-orange-500"
-                    : "text-gray-700 hover:text-orange-500"
+                    ? "text-[#d4af37]"
+                    : "text-[#a8c7d8] hover:text-[#d4af37]"
                 }`
               }>
               Home
@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="relative group">
               <button
                 onClick={toggleAbout}
-                className="flex items-center px-2 py-1 font-medium text-gray-700 hover:text-orange-500 transition-colors">
+                className="flex items-center px-2 py-1 font-medium text-[#a8c7d8] hover:text-[#d4af37] transition-colors">
                 About Us
                 <RxCaretDown
                   className={`ml-1 transition-transform ${
@@ -53,15 +53,15 @@ const Navbar = () => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                  className="absolute left-0 mt-2 w-48 bg-[#122a42] rounded-md shadow-xl py-1 z-50 border border-[#1e3a5f]">
                   <NavLink
                     to="/about/company"
-                    className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500">
+                    className="block px-4 py-2 text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]">
                     Our Company
                   </NavLink>
                   <NavLink
                     to="/about/team"
-                    className="block px-4 py-2 text-gray-700 hover:bg-orange-50 hover:text-orange-500">
+                    className="block px-4 py-2 text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]">
                     Our Team
                   </NavLink>
                 </motion.div>
@@ -73,8 +73,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-2 py-1 font-medium transition-colors ${
                   isActive
-                    ? "text-orange-500"
-                    : "text-gray-700 hover:text-orange-500"
+                    ? "text-[#d4af37]"
+                    : "text-[#a8c7d8] hover:text-[#d4af37]"
                 }`
               }>
               Gallery
@@ -85,8 +85,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-2 py-1 font-medium transition-colors ${
                   isActive
-                    ? "text-orange-500"
-                    : "text-gray-700 hover:text-orange-500"
+                    ? "text-[#d4af37]"
+                    : "text-[#a8c7d8] hover:text-[#d4af37]"
                 }`
               }>
               Contact Us
@@ -95,7 +95,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-orange-400 hover:bg-orange-500 text-white px-6 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
+              className="bg-[#d4af37] hover:bg-[#e8c252] text-[#0a1a2a] px-6 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
               Enquiry
             </motion.button>
           </nav>
@@ -104,7 +104,7 @@ const Navbar = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-md text-gray-700 hover:text-orange-500 focus:outline-none">
+              className="p-2 rounded-md text-[#a8c7d8] hover:text-[#d4af37] focus:outline-none">
               {isMenuOpen ? (
                 <RxCross2 className="h-6 w-6" />
               ) : (
@@ -120,7 +120,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white pb-4">
+            className="lg:hidden bg-[#122a42] pb-4 border-t border-[#1e3a5f]">
             <div className="pt-2 pb-3 space-y-1">
               <NavLink
                 to="/"
@@ -128,8 +128,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `block px-3 py-2 rounded-md text-base font-medium ${
                     isActive
-                      ? "bg-orange-50 text-orange-500"
-                      : "text-gray-700 hover:bg-orange-50 hover:text-orange-500"
+                      ? "bg-[#1e3a5f] text-[#d4af37]"
+                      : "text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]"
                   }`
                 }>
                 Home
@@ -138,7 +138,7 @@ const Navbar = () => {
               <div className="px-3 pt-2 pb-1">
                 <button
                   onClick={toggleAbout}
-                  className="flex items-center w-full text-left text-base font-medium text-gray-700 hover:text-orange-500">
+                  className="flex items-center w-full text-left text-base font-medium text-[#a8c7d8] hover:text-[#d4af37]">
                   About Us
                   <RxCaretDown
                     className={`ml-1 transition-transform ${
@@ -154,13 +154,13 @@ const Navbar = () => {
                     <NavLink
                       to="/about/company"
                       onClick={toggleMenu}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-orange-50 hover:text-orange-500">
+                      className="block px-3 py-2 rounded-md text-base font-medium text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]">
                       Our Company
                     </NavLink>
                     <NavLink
                       to="/about/team"
                       onClick={toggleMenu}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-orange-50 hover:text-orange-500">
+                      className="block px-3 py-2 rounded-md text-base font-medium text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]">
                       Our Team
                     </NavLink>
                   </motion.div>
@@ -173,8 +173,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `block px-3 py-2 rounded-md text-base font-medium ${
                     isActive
-                      ? "bg-orange-50 text-orange-500"
-                      : "text-gray-700 hover:bg-orange-50 hover:text-orange-500"
+                      ? "bg-[#1e3a5f] text-[#d4af37]"
+                      : "text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]"
                   }`
                 }>
                 Gallery
@@ -186,14 +186,14 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `block px-3 py-2 rounded-md text-base font-medium ${
                     isActive
-                      ? "bg-orange-50 text-orange-500"
-                      : "text-gray-700 hover:bg-orange-50 hover:text-orange-500"
+                      ? "bg-[#1e3a5f] text-[#d4af37]"
+                      : "text-[#a8c7d8] hover:bg-[#1e3a5f] hover:text-[#d4af37]"
                   }`
                 }>
                 Contact Us
               </NavLink>
 
-              <button className="w-full mt-2 bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded-md font-medium transition-colors">
+              <button className="w-full mt-2 bg-[#d4af37] hover:bg-[#e8c252] text-[#0a1a2a] px-4 py-2 rounded-md font-medium transition-colors">
                 Enquiry
               </button>
             </div>

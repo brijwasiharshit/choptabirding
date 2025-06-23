@@ -1,48 +1,59 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
   {
-    url: "https://www.rockjumperbirding.com/wp-content/uploads/2025/05/wingspecials-2.jpg",
-    title: "Explore the Wild",
-    subtitle: "Discover amazing birding adventures worldwide",
+    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675241/DSC_3443_qijfmt.jpg",
+    title: "Birding from Dehradun to Chopta",
+    subtitle: "Experience scenic trails and rare Himalayan birdlife",
   },
   {
-    url: "https://www.rockjumperbirding.com/wp-content/uploads/2025/06/wingspecials.jpg",
-    title: "Special Tours",
-    subtitle: "Join our exclusive birdwatching expeditions",
+    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675287/DSC_0202_uvmhcr.jpg",
+    title: "Guided Birdwatching Tours",
+    subtitle: "Join our expert-led journeys through Uttarakhand’s birding hotspots",
   },
   {
-    url: "https://www.rockjumperbirding.com/wp-content/uploads/2025/05/wingspecials-2.jpg",
-    title: "Explore the Wild",
-    subtitle: "Discover amazing birding adventures worldwide",
+    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675439/1636534261421-01_w4jopb.jpg",
+    title: "Chopta Birding Escapes",
+    subtitle: "Spot Monals, Woodpeckers, and more in lush alpine meadows",
   },
   {
-    url: "https://www.rockjumperbirding.com/wp-content/uploads/2025/05/wingspecials-2.jpg",
-    title: "Explore the Wild",
-    subtitle: "Discover amazing birding adventures worldwide",
+    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675505/DSC_2402-DeNoiseAI-standard_c2ipe2.jpg",
+    title: "Himalayan Birding Trail",
+    subtitle: "A memorable birdwatching adventure through the Garhwal Himalayas",
   },
 ];
 
 const Header = () => {
   const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
+  const [direction, setDirection] = useState(1);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const nextSlide = () => {
     setDirection(1);
     setIndex((prev) => (prev + 1) % images.length);
   };
 
-  const prevSlide = () => {
-    setDirection(-1);
-    setIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  useEffect(() => {
+    // Preload all images
+    let loadedCount = 0;
+    images.forEach(({ url }) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setIsLoaded(true);
+        }
+      };
+    });
+  }, []);
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    if (!isLoaded) return;
+    const timer = setInterval(nextSlide, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isLoaded]);
 
   const variants = {
     enter: (direction) => ({
@@ -59,8 +70,16 @@ const Header = () => {
     }),
   };
 
+  if (!isLoaded) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-[#0a1a2a] text-white text-lg">
+        Loading slideshow...
+      </div>
+    );
+  }
+
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden bg-[#0a1a2a]">
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={index}
@@ -70,60 +89,54 @@ const Header = () => {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
+            x: { type: "tween", ease: "easeInOut", duration: 0.8 },
+            opacity: { duration: 0.5 },
           }}
-          className="absolute inset-0">
+          className="absolute inset-0"
+        >
           <img
             src={images[index].url}
             alt="Slider image"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-85"
           />
 
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a2a] via-[#0a1a2a]/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-[#0a1a2a]/40"></div>
+
           {/* Text Overlay */}
-          <div className="absolute inset-0 bg-opacity-30 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4 max-w-4xl">
               <motion.h1
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                className="text-4xl md:text-6xl font-bold text-[#d4af37] mb-4 font-serif drop-shadow-lg"
+              >
                 {images[index].title}
               </motion.h1>
               <motion.p
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
+                className="text-xl md:text-2xl text-[#a8c7d8] mb-8 max-w-2xl mx-auto font-light drop-shadow-md"
+              >
                 {images[index].subtitle}
               </motion.p>
               <motion.button
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.7 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, backgroundColor: "#e8c252" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+                className="bg-[#d4af37] hover:bg-[#e8c252] text-[#0a1a2a] px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all border-2 border-[#d4af37]/50"
+              >
                 Book Now
               </motion.button>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 p-3 rounded-full shadow-md z-10"
-        aria-label="Previous slide">
-        <FiChevronLeft className="h-6 w-6 text-gray-800" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 p-3 rounded-full shadow-md z-10"
-        aria-label="Next slide">
-        <FiChevronRight className="h-6 w-6 text-gray-800" />
-      </button>
 
       {/* Dots Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
@@ -135,7 +148,7 @@ const Header = () => {
               setIndex(i);
             }}
             className={`h-3 w-3 rounded-full transition-all ${
-              i === index ? "bg-white w-6" : "bg-white bg-opacity-50"
+              i === index ? "bg-[#d4af37] w-6" : "bg-[#a8c7d8] bg-opacity-50"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />
