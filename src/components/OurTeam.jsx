@@ -4,24 +4,17 @@ import { motion } from "framer-motion";
 const teamMembers = [
   {
     id: 1,
-    name: "Dr. Sarah Chen",
-    role: "Lead Ornithologist",
-    bio: "PhD in Avian Biology with 15 years field experience across Asia",
+    name: "Prabhu Hazara",
+    role: "Lead Bird Guide",
+    bio: "A seasoned wildlife expert with deep knowledge of birds and their habitats. Prabhu's unmatched spotting skills and warm, people friendly approach make every tour engaging and memorable",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2"
   },
   {
     id: 2,
-    name: "James Wilson",
-    role: "Expedition Guide",
-    bio: "Specializes in Amazonian species with unparalleled tracking skills",
+    name: "Nitesh Sati",
+    role: "Marketing and OutReach",
+    bio: "An avid nature enthusiast and trekker, Nitesh handles advertising and marketing, ensuring that these unique birding experiences reach the right audience. His storytelling and visual content capture the magic of the wild",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a"
-  },
-  {
-    id: 3,
-    name: "Priya Kapoor",
-    role: "Photography Expert",
-    bio: "Wildlife photographer featured in National Geographic",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956"
   }
 ];
 

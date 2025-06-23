@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
   {
@@ -10,7 +11,7 @@ const images = [
   {
     url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675287/DSC_0202_uvmhcr.jpg",
     title: "Guided Birdwatching Tours",
-    subtitle: "Join our expert-led journeys through Uttarakhand’s birding hotspots",
+    subtitle: "Join our expert-led journeys through Uttarakhand's birding hotspots",
   },
   {
     url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675439/1636534261421-01_w4jopb.jpg",
@@ -28,36 +29,96 @@ const Header = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loadedImages, setLoadedImages] = useState([]);
+  const [showBird, setShowBird] = useState(true);
+  const timerRef = useRef(null);
+  const lastTransitionTime = useRef(0);
 
-  const nextSlide = () => {
-    setDirection(1);
-    setIndex((prev) => (prev + 1) % images.length);
+  // Flying bird animation variants
+  const birdVariants = {
+    initial: { x: '-100vw', y: '-50%' },
+    animate: { 
+      x: '100vw',
+      y: ['-50%', '10%', '-50%', '10%', '-50%'],
+      transition: {
+        x: { duration: 3, ease: "linear" },
+        y: { duration: 0.5, repeat: 5, ease: "easeInOut" },
+      }
+    },
+    exit: { opacity: 0 }
   };
 
+  // Preload images and track loading status
   useEffect(() => {
-    // Preload all images
-    let loadedCount = 0;
-    images.forEach(({ url }) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === images.length) {
-          setIsLoaded(true);
-        }
-      };
-    });
+    const loadImages = async () => {
+      const loadingPromises = images.map((img) => {
+        return new Promise((resolve) => {
+          const image = new Image();
+          image.src = img.url;
+          image.onload = () => resolve({ ...img, loaded: true });
+          image.onerror = () => resolve({ ...img, loaded: false });
+        });
+      });
+
+      const loaded = await Promise.all(loadingPromises);
+      setLoadedImages(loaded);
+      
+      // Show bird animation for at least 3 seconds
+      setTimeout(() => {
+        setShowBird(false);
+        setIsLoaded(true);
+      }, 3000);
+    };
+
+    loadImages();
   }, []);
 
+  // Handle slide transitions
+  const goToSlide = (newIndex) => {
+    const now = Date.now();
+    if (now - lastTransitionTime.current < 3000) return;
+    
+    setDirection(newIndex > index ? 1 : -1);
+    setIndex(newIndex);
+    lastTransitionTime.current = now;
+  };
+
+  const nextSlide = () => {
+    const now = Date.now();
+    if (now - lastTransitionTime.current < 3000) return;
+    
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % images.length);
+    lastTransitionTime.current = now;
+  };
+
+  const prevSlide = () => {
+    const now = Date.now();
+    if (now - lastTransitionTime.current < 3000) return;
+    
+    setDirection(-1);
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+    lastTransitionTime.current = now;
+  };
+
+  // Auto-advance slides
   useEffect(() => {
     if (!isLoaded) return;
-    const timer = setInterval(nextSlide, 3000);
-    return () => clearInterval(timer);
+    
+    timerRef.current = setInterval(() => {
+      const now = Date.now();
+      if (now - lastTransitionTime.current >= 3000) {
+        nextSlide();
+      }
+    }, 100); // Check every 100ms if 3 seconds have passed
+
+    return () => clearInterval(timerRef.current);
   }, [isLoaded]);
 
-  const variants = {
+  // Slide animation variants
+  const slideVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
     }),
     center: {
@@ -65,15 +126,45 @@ const Header = () => {
       opacity: 1,
     },
     exit: (direction) => ({
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? '100%' : '-100%',
       opacity: 0,
     }),
   };
 
   if (!isLoaded) {
     return (
-      <div className="h-screen flex items-center justify-center bg-[#0a1a2a] text-white text-lg">
-        Loading slideshow...
+      <div className="h-screen flex items-center justify-center bg-[#0a1a2a] overflow-hidden relative">
+        {/* Flying bird animation */}
+        <AnimatePresence>
+          {showBird && (
+            <motion.div
+              className="absolute top-1/2 left-0 z-50"
+              variants={birdVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <svg
+                width="80"
+                height="60"
+                viewBox="0 0 512 512"
+                fill="#d4af37"
+                className="drop-shadow-lg"
+              >
+                <path d="M512 256c0-37.7-23.7-69.9-57.1-82.4 14.7-32.4 8.8-71.9-17.9-98.6-26.7-26.7-66.2-32.6-98.6-17.9C325.9 23.7 293.7 0 256 0s-69.9 23.7-82.4 57.1c-32.4-14.7-72-8.8-98.6 17.9-26.7 26.7-32.6 66.2-17.9 98.6C23.7 186.1 0 218.3 0 256s23.7 69.9 57.1 82.4c-14.7 32.4-8.8 72 17.9 98.6 26.6 26.6 66.1 32.7 98.6 17.9 12.5 33.3 44.7 57.1 82.4 57.1s69.9-23.7 82.4-57.1c32.6 14.8 72 8.7 98.6-17.9 26.7-26.7 32.6-66.2 17.9-98.6 33.4-12.5 57.1-44.7 57.1-82.4z" />
+              </svg>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center z-10"
+        >
+          <h2 className="text-2xl text-[#d4af37] mb-2">Loading Birding Adventures</h2>
+          <div className="w-32 h-1 bg-[#d4af37] mx-auto mb-4"></div>
+          <p className="text-[#a8c7d8]">Preparing your journey through the Himalayas...</p>
+        </motion.div>
       </div>
     );
   }
@@ -84,25 +175,32 @@ const Header = () => {
         <motion.div
           key={index}
           custom={direction}
-          variants={variants}
+          variants={slideVariants}
           initial="enter"
           animate="center"
           exit="exit"
           transition={{
-            x: { type: "tween", ease: "easeInOut", duration: 0.8 },
+            x: { type: "spring", stiffness: 300, damping: 30 },
             opacity: { duration: 0.5 },
           }}
           className="absolute inset-0"
         >
-          <img
-            src={images[index].url}
-            alt="Slider image"
-            className="w-full h-full object-cover opacity-85"
-          />
-
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a2a] via-[#0a1a2a]/70 to-transparent"></div>
-          <div className="absolute inset-0 bg-[#0a1a2a]/40"></div>
+          {loadedImages[index]?.loaded ? (
+            <>
+              <img
+                src={images[index].url}
+                alt="Slider image"
+                className="w-full h-full object-cover opacity-85"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a2a] via-[#0a1a2a]/70 to-transparent"></div>
+              <div className="absolute inset-0 bg-[#0a1a2a]/40"></div>
+            </>
+          ) : (
+            <div className="w-full h-full bg-[#0a1a2a] flex items-center justify-center">
+              <div className="animate-pulse text-[#a8c7d8]">Loading image...</div>
+            </div>
+          )}
 
           {/* Text Overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
@@ -138,15 +236,15 @@ const Header = () => {
         </motion.div>
       </AnimatePresence>
 
+      {/* Navigation Arrows */}
+     
+
       {/* Dots Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
         {images.map((_, i) => (
           <button
             key={i}
-            onClick={() => {
-              setDirection(i > index ? 1 : -1);
-              setIndex(i);
-            }}
+            onClick={() => goToSlide(i)}
             className={`h-3 w-3 rounded-full transition-all ${
               i === index ? "bg-[#d4af37] w-6" : "bg-[#a8c7d8] bg-opacity-50"
             }`}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const MapSection = () => {
   return (
-    <section className="bg-[#122a42] py-20 px-4 md:px-20">
+    <section className="bg-[#122a42]  px-4 ">
       <div className="max-w-6xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -26,17 +26,17 @@ const MapSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="rounded-2xl overflow-hidden border-2 border-[#1e3a5f] shadow-xl relative h-96"
+          className="rounded-2xl overflow-hidden border-2 border-[#1e3a5f] shadow-xl relative h-64 sm:h-80 md:h-96"
         >
-          {/* Replace with your actual map component or iframe */}
-          <div className="absolute inset-0 bg-[#0a1a2a] flex items-center justify-center">
-            <div className="text-center p-8">
-              <h3 className="text-2xl font-bold text-[#d4af37] mb-4">Interactive Map Coming Soon</h3>
-              <p className="text-[#a8c7d8] mb-6">We're working on an interactive map to showcase all our destinations</p>
-              <button className="text-[#d4af37] hover:text-[#e8c252] font-medium underline transition-colors">
-                View Text List of Locations
-              </button>
-            </div>
+          {/* Optimized map image container */}
+          <div className="absolute inset-0">
+            <img
+              src="https://res.cloudinary.com/djrjt69jl/image/upload/v1750691821/Screenshot_2025-06-23_204312_dnukqw.png"
+              alt="World map showing our birding destinations"
+              className="w-full h-full object-contain object-center"
+              loading="lazy"
+            />
+            
           </div>
         </motion.div>
       </div>

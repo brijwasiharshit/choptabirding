@@ -45,18 +45,12 @@ const AboutUs = () => {
           >
             <h3 className="text-3xl font-bold text-[#d4af37] mb-6">Who We Are</h3>
             <p className="text-lg text-[#a8c7d8] mb-6 leading-relaxed">
-              Founded in 2010, Avian Explorations began with a simple passion - to share the breathtaking beauty of birdlife with fellow nature enthusiasts. What started as small local tours has grown into internationally recognized birding expeditions.
+              Founded in 2007, Chopta Birding began with a simple passion - to share the breathtaking beauty of birdlife with fellow nature enthusiasts. What started as small local tours has grown into internationally recognized birding expeditions.
             </p>
             <p className="text-lg text-[#a8c7d8] mb-8 leading-relaxed">
               Our team of expert ornithologists and naturalists have collectively spent over 10,000 hours in the field, developing an intimate knowledge of avian habitats and behaviors across four continents.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: "#e8c252" }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#d4af37] hover:bg-[#e8c252] text-[#0a1a2a] px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 border-2 border-[#d4af37]/50"
-            >
-              Learn Our Values
-            </motion.button>
+       
           </motion.div>
         </div>
       </div>

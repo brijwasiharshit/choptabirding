@@ -4,21 +4,15 @@ import { motion } from "framer-motion";
 const destinations = [
   {
     id: 1,
-    name: "Western Ghats, India",
-    description: "Biodiversity hotspot with 500+ bird species",
-    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5"
+    name: "Chopta",
+    description: "Serene Himalayan destination known for its lush meadows, alpine forests, and rich birdlife—including the vibrant Himalayan Monal",
+    image: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750692593/Screenshot_2025-06-23_205902_fcq0ez.png"
   },
   {
     id: 2,
-    name: "Amazon Rainforest",
-    description: "Home to colorful macaws and rare species",
-    image: "https://images.unsplash.com/photo-1614557255895-9a2c0be23646"
-  },
-  {
-    id: 3,
-    name: "Serengeti Plains",
-    description: "Witness migratory birds in vast savannas",
-    image: "https://images.unsplash.com/photo-1614532188535-2fa164c9ea24"
+    name: "Mandal",
+    description: "Village situated near Chamoli, Famous for Bird Watching",
+    image: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750692256/mandal_wxlqjn.png"
   }
 ];
 
@@ -69,19 +63,7 @@ const PopularDestinations = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <motion.button
-            whileHover={{ 
-              scale: 1.05,
-              backgroundColor: "#e8c252",
-              boxShadow: "0 10px 25px -5px rgba(212, 175, 55, 0.4)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-[#d4af37] text-[#0a1a2a] rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#d4af37]/50"
-          >
-            View All Destinations
-          </motion.button>
-        </div>
+     
       </div>
     </section>
   );
