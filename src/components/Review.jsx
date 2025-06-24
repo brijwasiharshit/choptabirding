@@ -47,12 +47,6 @@ const Review = () => {
           </div>
         ))}
       </div>
-
-      <div className="text-center mt-12">
-        <button className="px-8 py-3 bg-indigo-600 text-white rounded-full font-medium hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg">
-          Read More Reviews
-        </button>
-      </div>
     </div>
   );
 };

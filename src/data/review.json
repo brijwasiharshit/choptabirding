@@ -14,5 +14,13 @@
     "rating": 5,
     "position": "Marketing Director",
     "avatar": "/path/to/avatar.jpg"
+  },
+  {
+    "id": 3,
+    "comment": "This product changed my life! The quality is outstanding.",
+    "title": "John Doe",
+    "rating": 5,
+    "position": "Marketing Director",
+    "avatar": "/path/to/avatar.jpg"
   }
 ]
