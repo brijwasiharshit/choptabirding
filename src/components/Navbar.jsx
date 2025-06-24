@@ -34,10 +34,10 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-sm shadow-xl" : "bg-white"
+      className={`fixed w-screen top-0 z-50 transition-all duration-300 text-[19px] lg:py-3 font-[lora] overflow-hidden ${
+        scrolled ? "bg-[#f8f5f0] shadow-lg" : "bg-[#f8f5f0]"
       }`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-15">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <NavLink
@@ -52,14 +52,14 @@ const Navbar = () => {
           </NavLink>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <nav className="hidden lg:flex justify-center items-center space-x-6 xl:space-x-8">
             <NavLink
               to="/"
               className={({ isActive }) =>
                 `px-2 py-1.5 font-medium transition-colors ${
                   isActive
-                    ? "text-[#2a6496]"
-                    : "text-gray-600 hover:text-[#2a6496]"
+                    ? "text-[#e67e22] font-semibold"
+                    : "text-[#2c3e50] hover:text-[#e67e22]"
                 }`
               }>
               Home
@@ -69,7 +69,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setIsAboutOpen(true)}
                 onMouseLeave={() => setIsAboutOpen(false)}
-                className="flex items-center px-2 py-1.5 font-medium text-gray-600 hover:text-[#2a6496] transition-colors">
+                className="flex items-center px-2 py-1.5 font-medium text-[#2c3e50] hover:text-[#e67e22] transition-colors">
                 About Us
                 <RxCaretDown
                   className={`ml-1 transition-transform ${
@@ -86,15 +86,15 @@ const Navbar = () => {
                     transition={{ duration: 0.2 }}
                     onMouseEnter={() => setIsAboutOpen(true)}
                     onMouseLeave={() => setIsAboutOpen(false)}
-                    className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-xl py-1 z-50 border border-gray-200">
+                    className="absolute left-0 mt-2 w-48 bg-[#f8f5f0] rounded-md shadow-xl py-1 z-50 border border-[#d5d0c5]">
                     <NavLink
                       to="/about/company"
-                      className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-[#2a6496] transition-colors">
+                      className="block px-4 py-2 text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22] transition-colors">
                       Our Company
                     </NavLink>
                     <NavLink
                       to="/about/team"
-                      className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-[#2a6496] transition-colors">
+                      className="block px-4 py-2 text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22] transition-colors">
                       Our Team
                     </NavLink>
                   </motion.div>
@@ -107,8 +107,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-2 py-1.5 font-medium transition-colors ${
                   isActive
-                    ? "text-[#2a6496]"
-                    : "text-gray-600 hover:text-[#2a6496]"
+                    ? "text-[#e67e22] font-semibold"
+                    : "text-[#2c3e50] hover:text-[#e67e22]"
                 }`
               }>
               Gallery
@@ -119,26 +119,25 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `px-2 py-1.5 font-medium transition-colors ${
                   isActive
-                    ? "text-[#2a6496]"
-                    : "text-gray-600 hover:text-[#2a6496]"
+                    ? "text-[#e67e22] font-semibold"
+                    : "text-[#2c3e50] hover:text-[#e67e22]"
                 }`
               }>
               Contact Us
             </NavLink>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#2a6496] hover:bg-[#3a74a6] text-white px-5 py-1.5 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
-              Enquiry
-            </motion.button>
           </nav>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden md:flex items-center bg-[#e67e22] hover:bg-[#d35400] text-white px-5 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
+            Enquiry
+          </motion.button>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center z-50">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-md text-gray-600 hover:text-[#2a6496] focus:outline-none transition-colors"
+              className="p-2 rounded-md text-[#2c3e50] hover:text-[#e67e22] focus:outline-none transition-colors"
               aria-label="Toggle menu">
               {isMenuOpen ? (
                 <RxCross2 className="h-6 w-6" />
@@ -157,7 +156,7 @@ const Navbar = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white border-t border-gray-200 mobile-menu-container shadow-lg">
+              className="lg:hidden bg-[#f8f5f0] border-t border-[#d5d0c5] mobile-menu-container shadow-lg">
               <div className="pt-2 pb-4 space-y-1 px-4">
                 <NavLink
                   to="/"
@@ -165,8 +164,8 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     `block px-3 py-3 rounded-md text-base font-medium ${
                       isActive
-                        ? "bg-gray-100 text-[#2a6496]"
-                        : "text-gray-600 hover:bg-gray-100 hover:text-[#2a6496]"
+                        ? "bg-[#e9e5dd] text-[#e67e22] font-semibold"
+                        : "text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22]"
                     }`
                   }>
                   Home
@@ -175,7 +174,7 @@ const Navbar = () => {
                 <div className="px-3 pt-1 pb-1">
                   <button
                     onClick={toggleAbout}
-                    className="flex items-center w-full text-left text-base font-medium text-gray-600 hover:text-[#2a6496] py-3">
+                    className="flex items-center w-full text-left text-base font-medium text-[#2c3e50] hover:text-[#e67e22] py-3">
                     About Us
                     <RxCaretDown
                       className={`ml-1 transition-transform ${
@@ -194,13 +193,19 @@ const Navbar = () => {
                         <NavLink
                           to="/about/company"
                           onClick={toggleMenu}
-                          className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-[#2a6496]">
+                          className={({ isActive }) =>
+                            `block px-3 py-2 rounded-md text-base font-medium ${
+                              isActive
+                                ? "bg-[#e9e5dd] text-[#e67e22] font-semibold"
+                                : "text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22]"
+                            }`
+                          }>
                           Our Company
                         </NavLink>
                         <NavLink
                           to="/about/team"
                           onClick={toggleMenu}
-                          className="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-[#2a6496]">
+                          className="block px-3 py-2 rounded-md text-base font-medium text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22]">
                           Our Team
                         </NavLink>
                       </motion.div>
@@ -214,8 +219,8 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     `block px-3 py-3 rounded-md text-base font-medium ${
                       isActive
-                        ? "bg-gray-100 text-[#2a6496]"
-                        : "text-gray-600 hover:bg-gray-100 hover:text-[#2a6496]"
+                        ? "bg-[#e9e5dd] text-[#e67e22] font-semibold"
+                        : "text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22]"
                     }`
                   }>
                   Gallery
@@ -227,8 +232,8 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     `block px-3 py-3 rounded-md text-base font-medium ${
                       isActive
-                        ? "bg-gray-100 text-[#2a6496]"
-                        : "text-gray-600 hover:bg-gray-100 hover:text-[#2a6496]"
+                        ? "bg-[#e9e5dd] text-[#e67e22] font-semibold"
+                        : "text-[#2c3e50] hover:bg-[#e9e5dd] hover:text-[#e67e22]"
                     }`
                   }>
                   Contact Us
@@ -236,7 +241,7 @@ const Navbar = () => {
 
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="w-full mt-2 bg-[#2a6496] hover:bg-[#3a74a6] text-white px-4 py-3 rounded-md font-medium transition-colors">
+                  className="w-full mt-2 bg-[#e67e22] hover:bg-[#d35400] text-white px-4 py-3 rounded-md font-medium transition-colors">
                   Enquiry
                 </motion.button>
               </div>

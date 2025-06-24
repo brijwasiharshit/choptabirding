@@ -192,11 +192,11 @@ const Header = () => {
               <img
                 src={images[index].url}
                 alt="Slider image"
-                className="w-full h-full object-cover opacity-90"
+                className="w-screen h-full object-cover opacity-90"
               />
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t"></div>
-              <div className="absolute inset-0 bg-white/30"></div>
+              <div className="absolute inset-0 "></div>
+              <div className="absolute "></div>
             </>
           ) : (
             <div className="w-full h-full bg-gray-100 flex items-center justify-center">
@@ -213,23 +213,23 @@ const Header = () => {
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-6xl font-bold text-[#2a6496] mb-4 font-serif drop-shadow-lg">
+                className="text-4xl md:text-6xl font-bold  text-white mb-4 font-serif drop-shadow-lg">
                 {images[index].title}
               </motion.h1>
               <motion.p
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto font-light drop-shadow-md">
+                className="text-xl md:text-2xl  text-white mb-8 max-w-2xl mx-auto font-light drop-shadow-md">
                 {images[index].subtitle}
               </motion.p>
               <motion.button
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.7 }}
-                whileHover={{ scale: 1.05, backgroundColor: "#f4a261" }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#2a6496] hover:bg-[#3a74a6] text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all border-2 border-[#2a6496]/50">
+                className="bg-[orange] hover:bg-orange-400 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all border-2 mt-20">
                 Book Now
               </motion.button>
             </div>
@@ -240,13 +240,13 @@ const Header = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[#2a6496] shadow-lg transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[orange] shadow-lg transition-all"
         aria-label="Previous slide">
         <FiChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[#2a6496] shadow-lg transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[orange] shadow-lg transition-all"
         aria-label="Next slide">
         <FiChevronRight size={24} />
       </button>
@@ -258,7 +258,7 @@ const Header = () => {
             key={i}
             onClick={() => goToSlide(i)}
             className={`h-3 w-3 rounded-full transition-all ${
-              i === index ? "bg-[#2a6496] w-6" : "bg-gray-400 bg-opacity-50"
+              i === index ? "bg-[orange] w-6" : "bg-gray-400 bg-opacity-50"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />
