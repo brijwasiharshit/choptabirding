@@ -12,7 +12,7 @@ const DiscoverSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}>
-          <div className="overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/20 bg-white/10 backdrop-blur-sm">
+          <div className="-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/20 bg-white/10 backdrop-blur-sm">
             <img
               className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover object-center hover:scale-105 transition-transform duration-500"
               src="https://res.cloudinary.com/djrjt69jl/image/upload/v1750676254/DSC_7052-DeNoiseAI-low-light_ygpqbg.jpg"

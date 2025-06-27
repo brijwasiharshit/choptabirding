@@ -25,7 +25,7 @@ const MapSection = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="rounded-2xl overflow-hidden border-2 border-gray-200 shadow-lg relative h-64 sm:h-80 md:h-96 bg-white">
+          className="rounded-2xl -hidden border-2 border-gray-200 shadow-lg relative h-64 sm:h-80 md:h-96 bg-white">
           {/* Optimized map image container */}
           <div className="absolute inset-0 p-4">
             <img

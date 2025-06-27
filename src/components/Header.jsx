@@ -135,7 +135,7 @@ const Header = () => {
 
   // if (!isLoaded) {
   //   return (
-  //     <div className="h-screen flex items-center justify-center bg-white overflow-hidden relative">
+  //     <div className="h-screen flex items-center justify-center bg-white -hidden relative">
   //       {/* Flying bird animation */}
   //       <AnimatePresence>
   //         {showBird && (
@@ -173,7 +173,7 @@ const Header = () => {
   // }
 
   return (
-    <div className="relative h-screen overflow-hidden bg-white">
+    <div className="relative h-screen w-full overflow-hidden bg-white">
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={index}

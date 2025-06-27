@@ -47,7 +47,7 @@ const PopularDestinations = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group overflow-hidden rounded-2xl border-2 border-gray-200 hover:border-[#f4a261]/50 transition-all duration-300 h-96 shadow-lg hover:shadow-xl">
+              className="relative group -hidden rounded-2xl border-2 border-gray-200 hover:border-[#f4a261]/50 transition-all duration-300 h-96 shadow-lg hover:shadow-xl">
               <img
                 src={destination.image}
                 alt={destination.name}

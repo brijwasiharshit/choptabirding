@@ -46,8 +46,8 @@ const OurTeam = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-[#f4a261]/50 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="h-64 overflow-hidden">
+              className="bg-white rounded-2xl -hidden border border-gray-200 hover:border-[#f4a261]/50 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="h-64 -hidden">
                 <img
                   src={member.image}
                   alt={member.name}

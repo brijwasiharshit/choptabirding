@@ -27,7 +27,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}>
-            <div className="rounded-3xl overflow-hidden border-2 border-gray-200 shadow-lg">
+            <div className="rounded-3xl -hidden border-2 border-gray-200 shadow-lg">
               <img
                 src="https://images.unsplash.com/photo-1480044965905-02098d419e96"
                 alt="Team in nature"

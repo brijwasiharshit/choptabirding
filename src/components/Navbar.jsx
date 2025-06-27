@@ -6,20 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect for navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleAbout = () => setIsAboutOpen(!isAboutOpen);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -36,7 +27,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 font-lora
     text-sm sm:text-base lg:text-[19px] py-2 lg:py-3 max-w-screen
-    ${scrolled ? "bg-[#f8f5f0] shadow-lg" : "bg-[#f8f5f0]"}
+    // ${scrolled ? "bg-[#f8f5f0] shadow-lg" : "bg-[#f8f5f0]"}
   `}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-15">
         <div className="flex justify-between items-center h-16 md:h-20">
@@ -46,7 +37,7 @@ const Navbar = () => {
             className="flex items-center z-50"
             onClick={() => setIsMenuOpen(false)}>
             <img
-              src="https://res-console.cloudinary.com/dofvmdnc7/thumbnails/v1/image/upload/v1751007329/Y2hvcHRhX2JpcmRpbmdfbm9fYmdfYjRhbnR6/drilldown"
+              src="https://res.cloudinary.com/dofvmdnc7/image/upload/v1751007329/chopta_birding_no_bg_b4antz.png"
               alt="logo"
               className="h-10 md:h-20 transition-all hover:opacity-90"
             />
@@ -87,7 +78,7 @@ const Navbar = () => {
             </NavLink>
 
             <a
-              href="#contact"
+              href="/#contact"
               className="flex items-center px-2 py-1.5 font-medium text-[#2c3e50] hover:text-[#e67e22] transition-colors">
               Contact Us
             </a>
@@ -144,7 +135,7 @@ const Navbar = () => {
 
                 <div className="px-3 pt-1 pb-1">
                   <a
-                    href="#about"
+                    href="/#about"
                     className="flex items-center w-full text-left text-base font-medium text-[#2c3e50] hover:text-[#e67e22] py-3">
                     About Us
                   </a>
@@ -164,7 +155,7 @@ const Navbar = () => {
                 </NavLink>
 
                 <a
-                  href="#about"
+                  href="/#contact"
                   className="flex items-center px-2 py-1.5 font-medium text-[#2c3e50] hover:text-[#e67e22] transition-colors">
                   Contact Us
                 </a>
