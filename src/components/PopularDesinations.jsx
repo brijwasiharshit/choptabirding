@@ -21,7 +21,7 @@ const destinations = [
 
 const PopularDestinations = () => {
   return (
-    <section className="bg-white py-20 px-4 md:px-20">
+    <section id="destinations" className="bg-white py-20 px-4 md:px-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -59,9 +59,6 @@ const PopularDestinations = () => {
                   {destination.name}
                 </h3>
                 <p className="text-gray-200">{destination.description}</p>
-                <button className="mt-3 text-[#f4a261] hover:text-[#e67e22] font-medium flex items-center transition-colors">
-                  Explore Tour <span className="ml-2">→</span>
-                </button>
               </div>
             </motion.div>
           ))}

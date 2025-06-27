@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Review = () => {
   return (
-    <div className="px-4 md:px-20 py-20 bg-white">
+    <div className="px-4 w-screen md:px-20 py-20 bg-white">
       <h2 className="text-3xl font-bold text-center mb-12 text-[black] font-[lora]">
         What Our Customers Say
       </h2>
@@ -44,9 +44,9 @@ const Review = () => {
       </div>
 
       <div className="text-center mt-12">
-        <button className="px-8 py-3 bg-[orange] text-white rounded-full font-medium hover:bg-orange-400 transition-colors shadow-md hover:shadow-lg">
+        {/* <button className="px-8 py-3 bg-[orange] text-white rounded-full font-medium hover:bg-orange-400 transition-colors shadow-md hover:shadow-lg">
           Read More Reviews
-        </button>
+        </button> */}
       </div>
     </div>
   );

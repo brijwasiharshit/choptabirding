@@ -69,7 +69,7 @@ const Header = () => {
       setTimeout(() => {
         setShowBird(false);
         setIsLoaded(true);
-      }, 3000);
+      }, 100);
     };
 
     loadImages();
@@ -133,44 +133,44 @@ const Header = () => {
     }),
   };
 
-  if (!isLoaded) {
-    return (
-      <div className="h-screen flex items-center justify-center bg-white overflow-hidden relative">
-        {/* Flying bird animation */}
-        <AnimatePresence>
-          {showBird && (
-            <motion.div
-              className="absolute top-1/2 left-0 z-50"
-              variants={birdVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit">
-              <svg
-                width="80"
-                height="60"
-                viewBox="0 0 512 512"
-                fill="#2a6496"
-                className="drop-shadow-lg">
-                <path d="M512 256c0-37.7-23.7-69.9-57.1-82.4 14.7-32.4 8.8-71.9-17.9-98.6-26.7-26.7-66.2-32.6-98.6-17.9C325.9 23.7 293.7 0 256 0s-69.9 23.7-82.4 57.1c-32.4-14.7-72-8.8-98.6 17.9-26.7 26.7-32.6 66.2-17.9 98.6C23.7 186.1 0 218.3 0 256s23.7 69.9 57.1 82.4c-14.7 32.4-8.8 72 17.9 98.6 26.6 26.6 66.1 32.7 98.6 17.9 12.5 33.3 44.7 57.1 82.4 57.1s69.9-23.7 82.4-57.1c32.6 14.8 72 8.7 98.6-17.9 26.7-26.7 32.6-66.2 17.9-98.6 33.4-12.5 57.1-44.7 57.1-82.4z" />
-              </svg>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="text-center z-10">
-          <h2 className="text-2xl text-[#2a6496] mb-2">
-            Loading Birding Adventures
-          </h2>
-          <div className="w-32 h-1 bg-[#f4a261] mx-auto mb-4"></div>
-          <p className="text-gray-600">
-            Preparing your journey through the Himalayas...
-          </p>
-        </motion.div>
-      </div>
-    );
-  }
+  // if (!isLoaded) {
+  //   return (
+  //     <div className="h-screen flex items-center justify-center bg-white overflow-hidden relative">
+  //       {/* Flying bird animation */}
+  //       <AnimatePresence>
+  //         {showBird && (
+  //           <motion.div
+  //             className="absolute top-1/2 left-0 z-50"
+  //             variants={birdVariants}
+  //             initial="initial"
+  //             animate="animate"
+  //             exit="exit">
+  //             <svg
+  //               width="80"
+  //               height="60"
+  //               viewBox="0 0 512 512"
+  //               fill="#2a6496"
+  //               className="drop-shadow-lg">
+  //               <path d="M512 256c0-37.7-23.7-69.9-57.1-82.4 14.7-32.4 8.8-71.9-17.9-98.6-26.7-26.7-66.2-32.6-98.6-17.9C325.9 23.7 293.7 0 256 0s-69.9 23.7-82.4 57.1c-32.4-14.7-72-8.8-98.6 17.9-26.7 26.7-32.6 66.2-17.9 98.6C23.7 186.1 0 218.3 0 256s23.7 69.9 57.1 82.4c-14.7 32.4-8.8 72 17.9 98.6 26.6 26.6 66.1 32.7 98.6 17.9 12.5 33.3 44.7 57.1 82.4 57.1s69.9-23.7 82.4-57.1c32.6 14.8 72 8.7 98.6-17.9 26.7-26.7 32.6-66.2 17.9-98.6 33.4-12.5 57.1-44.7 57.1-82.4z" />
+  //             </svg>
+  //           </motion.div>
+  //         )}
+  //       </AnimatePresence>
+  //       <motion.div
+  //         initial={{ opacity: 0 }}
+  //         animate={{ opacity: 1 }}
+  //         className="text-center z-10">
+  //         <h2 className="text-2xl text-[#2a6496] mb-2">
+  //           Loading Birding Adventures
+  //         </h2>
+  //         <div className="w-32 h-1 bg-[#f4a261] mx-auto mb-4"></div>
+  //         <p className="text-gray-600">
+  //           Preparing your journey through the Himalayas...
+  //         </p>
+  //       </motion.div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="relative h-screen overflow-hidden bg-white">
@@ -230,26 +230,17 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[orange] hover:bg-orange-400 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all border-2 mt-20">
-                Book Now
+                <a
+                  href="tel:+91 9536275550"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Book Now
+                </a>
               </motion.button>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[orange] shadow-lg transition-all"
-        aria-label="Previous slide">
-        <FiChevronLeft size={24} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-white/80 hover:bg-white text-[orange] shadow-lg transition-all"
-        aria-label="Next slide">
-        <FiChevronRight size={24} />
-      </button>
 
       {/* Dots Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-10">

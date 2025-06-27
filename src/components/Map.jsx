@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const MapSection = () => {
   return (
-    <section className="bg-gray-50 px-4 py-20">
+    <section id="tour" className="bg-gray-50 px-4 py-20">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

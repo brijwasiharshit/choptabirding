@@ -13,12 +13,11 @@ const Home = () => {
     <>
       <Header />
       <DiscoverSection />
-      <Review/>
+      <Review />
       <AboutUs />
       <OurTeam />
       <PopularDestinations />
       <MapSection />
-      <Footer />
     </>
   );
 };
