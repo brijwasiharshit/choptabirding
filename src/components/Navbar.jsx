@@ -45,9 +45,9 @@ const Navbar = () => {
             className="flex items-center z-50"
             onClick={() => setIsMenuOpen(false)}>
             <img
-              src="https://res.cloudinary.com/djrjt69jl/image/upload/v1750674838/Gemini_Generated_Image_oej5neoej5neoej5_ucoqwx.png"
+              src="/chopta_birding_no_bg.png"
               alt="logo"
-              className="h-10 md:h-12 transition-all hover:opacity-90"
+              className="h-10 md:h-20 transition-all hover:opacity-90"
             />
           </NavLink>
 
@@ -129,7 +129,7 @@ const Navbar = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden md:flex items-center bg-[#e67e22] hover:bg-[#d35400] text-white px-5 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
+            className="hidden lg:flex items-center bg-[#e67e22] hover:bg-[#d35400] text-white px-5 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
             Enquiry
           </motion.button>
 
