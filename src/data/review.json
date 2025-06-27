@@ -1,26 +1,44 @@
 [
   {
     "id": 1,
-    "comment": "This product changed my life! The quality is outstanding.",
-    "title": "John Doe",
-    "rating": 5,
-    "position": "Marketing Director",
-    "avatar": "/path/to/avatar.jpg"
+    "comment": "This facility is amazing. It is very well managed, maintained and is a great value for money. Prabhu is like live encyclopedia , when it comes to birding in the region. Even all the staff of him is very well mannered and are always ready to serve / help you in any means. Cant think of any other place to stay",
+    "title": "Amit Joshi",
+    "rating": 5
   },
   {
     "id": 2,
-    "comment": "This product changed my life! The quality is outstanding.",
-    "title": "John Doe",
-    "rating": 5,
-    "position": "Marketing Director",
-    "avatar": "/path/to/avatar.jpg"
+    "comment": "Prabhu Hazara, your expertise and passion for birding are truly inspiring. Thank you for sharing your knowledge with us and making our birding experience unforgettable. Your warm hospitality and guidance were invaluable, and we're grateful for the time you spent with us. You're an exceptional guide, and your love for nature shines through in everything you do",
+    "title": "Kowsick Somasundaram",
+    "rating": 5
   },
   {
     "id": 3,
-    "comment": "This product changed my life! The quality is outstanding.",
-    "title": "John Doe",
-    "rating": 5,
-    "position": "Marketing Director",
-    "avatar": "/path/to/avatar.jpg"
+    "comment": "We had an amazing experience in Prabhu's birding lode and hide. Food was lip smacking good. Extremely great hosts and a great place to stay and visit the amazing Sattal place. Highly recommend",
+    "title": "Karthik Nagaraj",
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "comment": "Bhimtal Birding Lodge is very nice place for bird watchers & photographers. Mr Prabhu Hazara, the propritor of this property himselfba nice person & his hospitality very very good, wish him every success in future",
+    "title": "shyamal Kr Chakraborty",
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "comment": "We 2 senior citizen birder ladies stayed in bhimtal birding lodge for 4 days.we had very good experience .host Prabhu hazare is very helpful polite with very good knowledge abot birds. Food quality was very good this was my 3rd tour with Prabhu and will like to go there every summer and winter for birding",
+    "title": "Vibha Komal",
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "comment": "Amazing stay at Bhimtal birding lodge. A pure 5 star in terms of facility, hospitality, amenities, property, staff and food. Prabhu ji, made our stay even more special with his highly professional attitude and knowledge. Highly recommend for birding or nature lovers as they would ensure that you feel special at their premise for your trip and give you the best memories for you to remember.",
+    "title": "Aniruddha Dey",
+    "rating": 5
+  },
+  {
+    "id": 7,
+    "comment": "Amazing service and excellent room condition. A spot where you can chill after birding, sip on your cup of tea and enjoy birdwatching from the area itself. Prabhu ji and his team make the experience so well from giving excellent quality food with all the room facilities. I highly recommend this place for staying.",
+    "title": "Arindam Chowdhury",
+    "rating": 5
   }
 ]

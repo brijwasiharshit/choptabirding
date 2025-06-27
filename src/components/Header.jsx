@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+// import { Helmet } from "react-helmet";
 
 const images = [
   {
@@ -133,47 +134,12 @@ const Header = () => {
     }),
   };
 
-  // if (!isLoaded) {
-  //   return (
-  //     <div className="h-screen flex items-center justify-center bg-white -hidden relative">
-  //       {/* Flying bird animation */}
-  //       <AnimatePresence>
-  //         {showBird && (
-  //           <motion.div
-  //             className="absolute top-1/2 left-0 z-50"
-  //             variants={birdVariants}
-  //             initial="initial"
-  //             animate="animate"
-  //             exit="exit">
-  //             <svg
-  //               width="80"
-  //               height="60"
-  //               viewBox="0 0 512 512"
-  //               fill="#2a6496"
-  //               className="drop-shadow-lg">
-  //               <path d="M512 256c0-37.7-23.7-69.9-57.1-82.4 14.7-32.4 8.8-71.9-17.9-98.6-26.7-26.7-66.2-32.6-98.6-17.9C325.9 23.7 293.7 0 256 0s-69.9 23.7-82.4 57.1c-32.4-14.7-72-8.8-98.6 17.9-26.7 26.7-32.6 66.2-17.9 98.6C23.7 186.1 0 218.3 0 256s23.7 69.9 57.1 82.4c-14.7 32.4-8.8 72 17.9 98.6 26.6 26.6 66.1 32.7 98.6 17.9 12.5 33.3 44.7 57.1 82.4 57.1s69.9-23.7 82.4-57.1c32.6 14.8 72 8.7 98.6-17.9 26.7-26.7 32.6-66.2 17.9-98.6 33.4-12.5 57.1-44.7 57.1-82.4z" />
-  //             </svg>
-  //           </motion.div>
-  //         )}
-  //       </AnimatePresence>
-  //       <motion.div
-  //         initial={{ opacity: 0 }}
-  //         animate={{ opacity: 1 }}
-  //         className="text-center z-10">
-  //         <h2 className="text-2xl text-[#2a6496] mb-2">
-  //           Loading Birding Adventures
-  //         </h2>
-  //         <div className="w-32 h-1 bg-[#f4a261] mx-auto mb-4"></div>
-  //         <p className="text-gray-600">
-  //           Preparing your journey through the Himalayas...
-  //         </p>
-  //       </motion.div>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="relative h-screen w-full overflow-hidden bg-white">
+      {/* <Helmet>
+        <title>Chopta Birding</title>
+        <meta name="" content="Detailed product description" />
+      </Helmet> */}
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={index}

@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/share/18puni8Ze7/"
                 className="text-gray-500 hover:text-[#2a6496] transition-colors">
                 <FaFacebook size={20} />
               </a>
@@ -29,7 +29,7 @@ const Footer = () => {
                 <FaInstagram size={20} />
               </a>
               <a
-                href="#"
+                href="/#"
                 className="text-gray-500 hover:text-[#2a6496] transition-colors">
                 <FaYoutube size={20} />
               </a>
@@ -44,14 +44,14 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#destinations"
+                  href="/#destinations"
                   className="text-gray-600 hover:text-[#2a6496] transition-colors">
                   Destinations
                 </a>
               </li>
               <li>
                 <a
-                  href="#tour"
+                  href="/#tour"
                   className="text-gray-600 hover:text-[#2a6496] transition-colors">
                   Tours
                 </a>
@@ -79,10 +79,12 @@ const Footer = () => {
               Contact
             </h4>
             <ul className="space-y-2 text-gray-600 font-bold">
-              <li>Chopta Valley,</li>
-              <li>Rudraprayag, Uttarakhand</li>
+              <li>Chopta Valley,Rudraprayag</li>
+              <li>(246453), Uttarakhand</li>
               <li>prabhuhazara@gmail.com</li>
-              <li>+91 9536275550</li>
+              <li>
+                <a href="tel:+91 9536275550">9536275550</a>
+              </li>
             </ul>
           </div>
         </div>
