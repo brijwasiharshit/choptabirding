@@ -1,5 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
+const images = [
+  " https://res.cloudinary.com/dofvmdnc7/image/upload/v1751095173/IMG-20250628-WA0069_sm5hbm.jpg",
+  "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751095197/IMG-20250628-WA0064_t9hdy6.jpg",
+  "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751095182/IMG-20250628-WA0058_qyysag.jpg",
+  "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751095156/IMG-20250628-WA0054_t92hyy.jpg",
+  "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751095149/IMG-20250628-WA0056_syftz8.jpg",
+];
 
 const destinations = [
   {
@@ -61,6 +68,42 @@ const PopularDestinations = () => {
                 <p className="text-gray-200">{destination.description}</p>
               </div>
             </motion.div>
+          ))}
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Gallery Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+            Himalayan Landscapes
+          </h2>
+          <p className="mt-3 text-lg text-gray-600 max-w-2xl mx-auto">
+            Breathtaking vistas of Chopta's natural wonders
+          </p>
+          <div className="mt-4 w-20 h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto"></div>
+        </div>
+
+        {/* Gallery Grid - Simplified and elegant */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+              <img
+                src={image}
+                className="w-full h-64 object-cover transform transition duration-500 group-hover:scale-105"
+                alt={`Himalayan landscape ${index + 1}`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <span className="text-white text-sm font-medium">
+                  {
+                    ["Mountain View", "Forest Trail", "Alpine Meadow"][
+                      index % 3
+                    ]
+                  }
+                </span>
+              </div>
+            </div>
           ))}
         </div>
       </div>

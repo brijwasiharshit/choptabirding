@@ -5,23 +5,23 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
   {
-    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675241/DSC_3443_qijfmt.jpg",
+    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999272/DSC_5708_oxqrsu.jpg",
     title: "Birding from Dehradun to Chopta",
     subtitle: "Experience scenic trails and rare Himalayan birdlife",
   },
   {
-    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675287/DSC_0202_uvmhcr.jpg",
+    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999271/DSC_9207_pnihwi.jpg",
     title: "Guided Birdwatching Tours",
     subtitle:
       "Join our expert-led journeys through Uttarakhand's birding hotspots",
   },
   {
-    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675439/1636534261421-01_w4jopb.jpg",
+    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999265/DSC_4382-SharpenAI-Focus_sxda2v.jpg",
     title: "Chopta Birding Escapes",
     subtitle: "Spot Monals, Woodpeckers, and more in lush alpine meadows",
   },
   {
-    url: "https://res.cloudinary.com/djrjt69jl/image/upload/v1750675505/DSC_2402-DeNoiseAI-standard_c2ipe2.jpg",
+    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999305/1674473691481_1_-DeNoiseAI-standard_nij7ah.jpg",
     title: "Himalayan Birding Trail",
     subtitle:
       "A memorable birdwatching adventure through the Garhwal Himalayas",
@@ -66,7 +66,6 @@ const Header = () => {
       const loaded = await Promise.all(loadingPromises);
       setLoadedImages(loaded);
 
-      // Show bird animation for at least 3 seconds
       setTimeout(() => {
         setShowBird(false);
         setIsLoaded(true);

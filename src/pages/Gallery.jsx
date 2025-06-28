@@ -36,7 +36,7 @@ const Gallery = () => {
       title: "",
     },
     {
-      url: "https://res-console.cloudinary.com/dofvmdnc7/thumbnails/v1/image/upload/v1751004105/RFNDXzQyMjQtRGVOb2lzZUFJLWxvdy1saWdodC1TaGFycGVuQUktRm9jdXNfcDZ1a3Fi/drilldown",
+      url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751004105/DSC_4224-DeNoiseAI-low-light-SharpenAI-Focus_p6ukqb.jpg",
       title: "",
     },
     {

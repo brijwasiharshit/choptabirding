@@ -7,14 +7,16 @@ const teamMembers = [
     name: "Prabhu Hazara",
     role: "Lead Bird Guide",
     bio: "A seasoned wildlife expert with deep knowledge of birds and their habitats. Prabhu's unmatched spotting skills and warm, people friendly approach make every tour engaging and memorable",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+    image:
+      "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751091480/WhatsApp_Image_2025-06-28_at_11.20.44_3821e189_puruz0.jpg",
   },
   {
     id: 2,
     name: "Nitesh Sati",
     role: "Marketing and OutReach",
     bio: "An avid nature enthusiast and trekker, Nitesh handles advertising and marketing, ensuring that these unique birding experiences reach the right audience. His storytelling and visual content capture the magic of the wild",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+    image:
+      "https://res.cloudinary.com/dofvmdnc7/image/upload/v1751094949/WhatsApp_Image_2025-06-28_at_12.43.36_bfc570ca_ksnxpe.jpg",
   },
 ];
 
@@ -47,7 +49,7 @@ const OurTeam = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="bg-white rounded-2xl -hidden border border-gray-200 hover:border-[#f4a261]/50 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="h-64 -hidden">
+              <div className="h-80 -hidden">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -60,9 +62,6 @@ const OurTeam = () => {
                 </h3>
                 <p className="text-gray-500 font-medium mb-3">{member.role}</p>
                 <p className="text-gray-600 mb-4">{member.bio}</p>
-                <button className="text-[#f4a261] hover:text-[#e67e22] font-medium transition-colors">
-                  View Profile →
-                </button>
               </div>
             </motion.div>
           ))}

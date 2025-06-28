@@ -64,11 +64,11 @@ const Footer = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/gallery"
+                <a
+                  href="/#bird-species"
                   className="text-gray-600 hover:text-[#2a6496] transition-colors">
                   Bird Species
-                </NavLink>
+                </a>
               </li>
             </ul>
           </div>

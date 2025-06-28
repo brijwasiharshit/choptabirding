@@ -37,7 +37,7 @@ const Navbar = () => {
             className="flex items-center z-50"
             onClick={() => setIsMenuOpen(false)}>
             <img
-              src="https://res.cloudinary.com/dofvmdnc7/image/upload/v1751007329/chopta_birding_no_bg_b4antz.png"
+              src="https://res.cloudinary.com/dofvmdnc7/image/upload/v1751086480/WhatsApp_Image_2025-06-28_at_10.16.53_5f3a7844-removebg-preview_fhivji.png"
               alt="logo"
               className="h-10 md:h-20 transition-all hover:opacity-90"
             />
