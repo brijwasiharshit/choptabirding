@@ -66,7 +66,7 @@ const Navbar = () => {
             </div>
 
             <NavLink
-              to="/gallery"
+              to="/bird-watching-gallery"
               className={({ isActive }) =>
                 `px-2 py-1.5 font-medium transition-colors ${
                   isActive
@@ -142,7 +142,7 @@ const Navbar = () => {
                 </div>
 
                 <NavLink
-                  to="/gallery"
+                  to="/bird-watching-gallery"
                   onClick={toggleMenu}
                   className={({ isActive }) =>
                     `block px-3 py-3 rounded-md text-base font-medium ${

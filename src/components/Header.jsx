@@ -5,7 +5,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const images = [
   {
-    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999272/DSC_5708_oxqrsu.jpg",
+    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999302/DSC_5183_rxz9ue.jpg",
     title: "Birding from Dehradun to Chopta",
     subtitle: "Experience scenic trails and rare Himalayan birdlife",
   },
@@ -21,7 +21,7 @@ const images = [
     subtitle: "Spot Monals, Woodpeckers, and more in lush alpine meadows",
   },
   {
-    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999305/1674473691481_1_-DeNoiseAI-standard_nij7ah.jpg",
+    url: "https://res.cloudinary.com/dofvmdnc7/image/upload/v1750999299/DSC_9773-DeNoiseAI-severe-noise_iygkme.jpg",
     title: "Himalayan Birding Trail",
     subtitle:
       "A memorable birdwatching adventure through the Garhwal Himalayas",
@@ -157,7 +157,7 @@ const Header = () => {
               <img
                 src={images[index].url}
                 alt="Slider image"
-                className="w-screen h-full object-cover opacity-90"
+                className="w-screen md:h-350 md:w-full h-full object-cover  opacity-90"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 "></div>
