@@ -58,7 +58,7 @@ const Footer = () => {
               </li>
               <li>
                 <NavLink
-                  to="/gallery"
+                  to="/bird-watching-gallery""
                   className="text-gray-600 hover:text-[#2a6496] transition-colors">
                   Gallery
                 </NavLink>
