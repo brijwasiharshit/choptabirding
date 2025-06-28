@@ -3,10 +3,28 @@ import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCaretDown, RxCross2 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
+import PopUp from "../layouts/Pop-Up";
 
 const Navbar = () => {
+  const [popUp, setPopUp] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // blocking scroll if popup is true
+  useEffect(() => {
+    if (popUp) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [popUp]);
 
   // Handle scroll effect for navbar
 
@@ -32,6 +50,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-15">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
+
           <NavLink
             to="/"
             className="flex items-center z-50"
@@ -86,13 +105,11 @@ const Navbar = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden lg:flex items-center bg-[#e67e22] hover:bg-[#d35400] text-white px-5 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg">
-            <a
-              href="https://wa.me/9536275550"
-              target="_blank"
-              rel="noopener noreferrer">
-              Enquiry{" "}
-            </a>{" "}
+            className="hidden lg:flex items-center bg-[#e67e22] hover:bg-[#d35400] text-white px-5 py-2 rounded-full font-medium transition-colors shadow-md hover:shadow-lg"
+            onClick={() => {
+              setPopUp(true);
+            }}>
+            Enquiry{" "}
           </motion.button>
 
           {/* Mobile Menu Button */}
@@ -162,19 +179,18 @@ const Navbar = () => {
 
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="w-full mt-2 bg-[#e67e22] hover:bg-[#d35400] text-white px-4 py-3 rounded-md font-medium transition-colors">
-                  <a
-                    href="https://wa.me/9536275550"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Enquiry{" "}
-                  </a>{" "}
+                  className="w-full mt-2 bg-[#e67e22] hover:bg-[#d35400] text-white px-4 py-3 rounded-md font-medium transition-colors"
+                  onClick={() => {
+                    setPopUp(true);
+                  }}>
+                  Enquiry{" "}
                 </motion.button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+      {popUp && <PopUp setPopUp={setPopUp} />}
     </header>
   );
 };

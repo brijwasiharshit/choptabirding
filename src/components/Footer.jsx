@@ -58,7 +58,7 @@ const Footer = () => {
               </li>
               <li>
                 <NavLink
-                  to="/gallery"
+                  to="/bird-watching-gallery"
                   className="text-gray-600 hover:text-[#2a6496] transition-colors">
                   Gallery
                 </NavLink>
@@ -81,7 +81,11 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-600 font-bold">
               <li>Chopta Valley,Rudraprayag</li>
               <li>(246453), Uttarakhand</li>
-              <li>prabhuhazara@gmail.com</li>
+              <li>
+                <a href="mailto:prabhuhazara@gmail.com">
+                  prabhuhazara@gmail.com
+                </a>
+              </li>
               <li>
                 <a href="tel:+91 9536275550">9536275550</a>
               </li>

@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import PopUp from "../layouts/Pop-Up";
 
 const DiscoverSection = () => {
+  const [popUp, setPopUp] = useState(false);
+  useEffect(() => {
+    if (popUp) {
+      // document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    return () => {
+      // document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [popUp]);
+
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-gradient-to-b from-[#f8f4e8] to-[#f0ede0]">
       <div className=" mx-auto flex flex-col md:flex-row gap-8 lg:gap-16 items-center">
@@ -21,6 +38,7 @@ const DiscoverSection = () => {
             />
           </div>
         </motion.div>
+        {popUp && <PopUp setPopUp={setPopUp} />}
 
         {/* Text Content */}
         <motion.div
@@ -58,14 +76,12 @@ const DiscoverSection = () => {
                 backgroundColor: "#e67e22",
                 boxShadow: "0 10px 25px -5px rgba(230, 126, 34, 0.4)",
               }}
+              onClick={() => {
+                setPopUp(true);
+              }}
               whileTap={{ scale: 0.95 }}
               className="mt-4 bg-[#e67e22] hover:bg-[#d35400] text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 border-2 border-orange-300/50">
-              <a
-                href="tel:+919536275550"
-                aria-label="Call Chopta Birding for tour booking"
-                rel="noopener noreferrer">
-                Join Our Next Adventure
-              </a>
+              Join Our Next Adventure
             </motion.button>
           </div>
         </motion.div>

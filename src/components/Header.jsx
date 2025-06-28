@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import PopUp from "../layouts/Pop-Up";
 // import { Helmet } from "react-helmet";
 
 const images = [
@@ -36,6 +37,23 @@ const Header = () => {
   const [showBird, setShowBird] = useState(true);
   const timerRef = useRef(null);
   const lastTransitionTime = useRef(0);
+
+  const [popUp, setPopUp] = useState(false);
+  // block scrolling
+  useEffect(() => {
+    if (popUp) {
+      // document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+
+    return () => {
+      // document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [popUp]);
 
   // Flying bird animation variants
   const birdVariants = {
@@ -194,18 +212,17 @@ const Header = () => {
                 transition={{ delay: 0.7 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[orange] hover:bg-orange-400 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all border-2 mt-20">
-                <a
-                  href="tel:+91 9536275550"
-                  target="_blank"
-                  rel="noopener noreferrer">
-                  Book Now
-                </a>
+                className="bg-[orange] hover:bg-orange-400 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition-all border-2 mt-20"
+                onClick={() => {
+                  setPopUp(true);
+                }}>
+                Book Now
               </motion.button>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
+      {popUp && <PopUp setPopUp={setPopUp} />}
 
       {/* Dots Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
