@@ -45,15 +45,19 @@ const AboutUs = () => {
               Who We Are
             </h3>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Founded in 2007, Chopta Birding began with a simple passion - to
-              share the breathtaking beauty of birdlife with fellow nature
-              enthusiasts. What started as small local tours has grown into
-              internationally recognized birding expeditions.
+              Founded in 2007,{" "}
+              <strong className="text-[#2a5e82]">Chopta Birding</strong> began
+              with a simple yet powerful passion — sharing the breathtaking
+              beauty of Himalayan birdlife with fellow nature enthusiasts. What
+              started as small local tours has evolved into internationally
+              recognized <strong>birdwatching expeditions</strong> known for
+              their authenticity and expertise.
             </p>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              Our team of expert ornithologists and naturalists have
-              collectively spent over 10,000 hours in the field, developing an
-              intimate knowledge of avian habitats and behaviors across four
+              Our team of expert <strong>ornithologists</strong> and seasoned{" "}
+              <strong>naturalists</strong> has spent over 10,000 hours in the
+              field, gaining deep insight into bird behavior and habitats across
+              the Himalayas and beyond — covering ecosystems across four
               continents.
             </p>
           </motion.div>
